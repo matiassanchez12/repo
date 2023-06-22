@@ -1,0 +1,59 @@
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-[10rem]">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+              <th scope="col" class="px-6 py-3">
+                  Id
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Nombre
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Apellido
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Dni
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Tipo
+          </th>
+              <th scope="col" class="px-6 py-3">
+                  Estado
+              </th>
+          </tr>
+      </thead>
+
+      <tbody *ngIf="isLoading">
+        <tr class="text-center flex justify-center items-center w-full">
+          <td>Cargando...</td>
+        </tr>
+      </tbody>
+
+      <tbody>
+          <tr *ngFor="let user of users" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+
+            <td class="px-6 py-4">
+              {{ user.id }}
+            </td>
+            <td class="px-6 py-4">
+                {{ user.name }}
+              </td>
+              <td class="px-6 py-4">
+                {{ user.lastName }}
+              </td>
+              <td class="px-6 py-4">
+                {{ user.dni }}
+              </td>
+              <td class="px-6 py-4 text-center">
+                <span class="bg-green-200 p-1 text-gray-600 rounded-md">
+                  {{ user.type }}
+                </span>
+              </td>
+              <td class="px-6 py-4 text-center">
+                  <button href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">{{ !user.isAproved ? 'Habilitar' : 'Deshabilitar' }}</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
